@@ -1,6 +1,7 @@
 import data from "../.local-content/pack.json" with { type: "json" };
 import type { Build, Entry } from "./types.ts";
-import type { ModuleContent } from "./module-types.ts";
+import type { ModuleContent, ModuleNpc } from "./module-types.ts";
+import type { BackgroundGrant } from "./onboarding.ts";
 import type { AdventureEncounter } from "./adventure-encounters.ts";
 
 /** Build-time content only. Campaign saves live independently in D1. */
@@ -14,6 +15,8 @@ export type ContentPack = {
   catalog: Entry[];
   modules: ModuleContent[];
   encounters: AdventureEncounter[];
+  encounterVersion?: string;
+  encounterPeople?: Record<string, ModuleNpc[]>;
   starter: {
     title: string;
     description: string;
@@ -23,6 +26,7 @@ export type ContentPack = {
     equipment: string[];
     activeWeapon: string;
     favorites: string[];
+    backgroundGrant?: BackgroundGrant;
   };
 };
 export const contentPack = data as unknown as ContentPack;

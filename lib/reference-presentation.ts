@@ -3,6 +3,7 @@ import type { Entry, MoveResult } from "./types.ts";
 export const actionNames = {
   main: "主要动作",
   minor: "次要动作",
+  simple: "简要动作",
   charge: "蓄力动作",
   reaction: "反应动作",
 };

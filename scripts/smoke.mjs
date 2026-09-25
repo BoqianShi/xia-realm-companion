@@ -4,6 +4,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { spawn, spawnSync } from "node:child_process";
 import { createStarter } from "../lib/onboarding.ts";
+import { contentPack } from "../lib/content-pack.ts";
 // Fresh, disposable D1. Never test writes against a caller-provided URL or existing save.
 const state = await mkdtemp(join(tmpdir(), "xia-smoke-"));
 const cli = "node_modules/wrangler/bin/wrangler.js";
@@ -40,12 +41,13 @@ try {
   envelope = duplicates[0].data;
   const competing = await Promise.all([1, 2].map(value => post(command("tableEdit", { id: "smoke-hero", revision: 2, operation: { kind: "resource", field: "mp", mode: "subtract", value } }))));
   assert.deepEqual(competing.map(r => r.status).sort(), [200, 409]);
-  for (const path of ["/", "/screen", "/adventures/demo-rain-pavilion", "/modules/demo-rain-pavilion/content.json"]) {
+  const module = contentPack.modules[0];
+  for (const path of ["/", "/screen", ...(module ? [`/adventures/${module.id}`, module.contentUrl] : [])]) {
     const response = await fetch(base + path); assert.equal(response.status, 200, path);
     assert.ok((await response.text()).length > 50, path);
   }
   assert.equal((await fetch(base + "/api/screen")).status, 200);
-  console.log("Worker smoke passed: original starter, D1 saves, duplicate requests, conflicts, reader and projector.");
+  console.log("Worker smoke passed: active content starter, D1 saves, duplicate requests, conflicts, reader and projector.");
 } catch (error) { console.error(logs.slice(-8000)); throw error; }
 finally {
   if (server && server.exitCode === null) { server.kill("SIGTERM"); await new Promise(resolve => server.once("exit", resolve)); }

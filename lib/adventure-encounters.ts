@@ -26,9 +26,9 @@ export type AdventureEncounter = {
   cast: EncounterActor[];
   notes: string[];
 };
-export const encounterVersion = contentPack.revision;
+export const encounterVersion = contentPack.encounterVersion ?? contentPack.revision;
 export const adventureEncounters = contentPack.encounters as AdventureEncounter[];
-export const encounterPeople = Object.fromEntries(contentPack.modules.map(m => [m.id, m.npcs])) as Record<string, ModuleNpc[]>;
+export const encounterPeople = contentPack.encounterPeople ?? Object.fromEntries(contentPack.modules.map(m => [m.id, m.npcs])) as Record<string, ModuleNpc[]>;
 export const getAdventureEncounter = (id: string) =>
   adventureEncounters.find((e) => e.id === id);
 export const encounterNpc = (moduleId: string, npcId: string) =>

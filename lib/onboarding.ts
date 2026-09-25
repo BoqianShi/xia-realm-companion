@@ -195,7 +195,7 @@ export function createStarter(name = "") {
   b.activeWeapon = preset.activeWeapon;
   b.favorites = [...preset.favorites];
   b.notes = preset.description;
-  return { build: b, grant: start.grant };
+  return { build: b, grant: structuredClone(preset.backgroundGrant ?? start.grant) };
 }
 export function saveBuildProblems(
   b: Build,

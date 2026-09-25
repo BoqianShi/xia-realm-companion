@@ -325,7 +325,7 @@ export type MoveResult = {
   rageCost: number;
   block: number;
   distance: number;
-  action: "main" | "minor" | "charge" | "reaction";
+  action: "main" | "minor" | "simple" | "charge" | "reaction";
   terms: DamageTerm[];
   details: { label: string; value: number | string }[];
   warnings: string[];
