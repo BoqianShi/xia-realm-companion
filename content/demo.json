@@ -1,0 +1,537 @@
+{
+  "schemaVersion": 1,
+  "id": "original-demo",
+  "title": "原创演示资料",
+  "rulesVersion": "demo-1",
+  "revision": "demo-2026-09-25.1",
+  "sources": {
+    "core": "原创演示",
+    "expansion": "扩展示例"
+  },
+  "catalog": [
+    {
+      "id": "demo-background",
+      "kind": "background",
+      "name": "雨亭旅人",
+      "grade": "身世",
+      "sect": "雨亭社",
+      "text": "雨亭旅人\n这是原创演示身世。你在沿路歇脚的雨亭认识了同伴。",
+      "source": {
+        "book": "core",
+        "version": "demo-1",
+        "page": 1,
+        "pdfPage": 1
+      },
+      "skillBonuses": {
+        "洞察": 1
+      }
+    },
+    {
+      "id": "demo-personality",
+      "kind": "personality",
+      "name": "耐心",
+      "grade": "性格",
+      "sect": "雨亭社",
+      "text": "耐心\n选择洞察与疗伤作为演示性格技能。",
+      "source": {
+        "book": "core",
+        "version": "demo-1",
+        "page": 1,
+        "pdfPage": 1
+      },
+      "choices": [
+        "洞察",
+        "疗伤",
+        "追踪",
+        "说服"
+      ]
+    },
+    {
+      "id": "demo-sect",
+      "kind": "sect",
+      "name": "雨亭社",
+      "grade": "门派",
+      "sect": "雨亭社",
+      "text": "雨亭社\n一群共同练习与记录见闻的旅人。此门派为原创演示。",
+      "source": {
+        "book": "core",
+        "version": "demo-1",
+        "page": 1,
+        "pdfPage": 1
+      }
+    },
+    {
+      "id": "demo-inner",
+      "kind": "inner",
+      "name": "息雨功",
+      "grade": "人级",
+      "sect": "雨亭社",
+      "text": "息雨功\n原创演示内功。运行不同阶段时替换六项属性加值；圆满后永久增加 4 气血。",
+      "source": {
+        "book": "core",
+        "version": "demo-1",
+        "page": 1,
+        "pdfPage": 1
+      },
+      "affinity": "阴",
+      "stages": [
+        {
+          "stage": 1,
+          "stats": {
+            "strength": 4,
+            "agility": 4,
+            "body": 4,
+            "breath": 4,
+            "qi": 4,
+            "spirit": 4
+          }
+        },
+        {
+          "stage": 2,
+          "stats": {
+            "strength": 8,
+            "agility": 8,
+            "body": 8,
+            "breath": 8,
+            "qi": 8,
+            "spirit": 8
+          }
+        },
+        {
+          "stage": 3,
+          "stats": {
+            "strength": 12,
+            "agility": 12,
+            "body": 12,
+            "breath": 12,
+            "qi": 12,
+            "spirit": 12
+          }
+        }
+      ],
+      "effects": {
+        "1": "六项属性各 +4。",
+        "2": "六项属性各 +8。",
+        "3": "六项属性各 +12。"
+      },
+      "permanent": "气血上限 +4。",
+      "modifiers": [
+        {
+          "key": "hpMax",
+          "value": 4,
+          "label": "息雨功圆满"
+        }
+      ],
+      "insight": 1
+    },
+    {
+      "id": "demo-routine",
+      "kind": "routine",
+      "name": "雨亭短棍",
+      "grade": "人级",
+      "sect": "雨亭社",
+      "text": "雨亭短棍\n原创演示套路，包含攻击、破架与防守三招。",
+      "source": {
+        "book": "core",
+        "version": "demo-1",
+        "page": 1,
+        "pdfPage": 1
+      },
+      "affinity": "阴",
+      "requirement": "棍",
+      "weapon": "棍"
+    },
+    {
+      "id": "demo-strike",
+      "kind": "move",
+      "name": "点石",
+      "grade": "人级",
+      "sect": "雨亭社",
+      "text": "点石\n类型：实招\n距离：1\n消耗：1\n主要动作，向单个目标挥棍，造成0.5力量点外功伤害。\n升级：招式伤害+3。",
+      "source": {
+        "book": "core",
+        "version": "demo-1",
+        "page": 1,
+        "pdfPage": 1
+      },
+      "parentId": "demo-routine",
+      "routine": "雨亭短棍",
+      "affinity": "阴",
+      "requirement": "棍",
+      "weapon": "棍",
+      "moveType": "实招",
+      "costText": "1",
+      "distance": "1",
+      "formula": {
+        "terms": [
+          {
+            "stat": "strength",
+            "coefficient": 0.5
+          }
+        ],
+        "fixed": null,
+        "damageType": "physical",
+        "damageUpgrade": 3,
+        "mp": 1,
+        "mpUpgrade": 0,
+        "rage": 0,
+        "rageUpgrade": 0,
+        "block": 0,
+        "blockUpgrade": 0,
+        "distance": 1,
+        "distanceUpgrade": 0,
+        "action": "main"
+      },
+      "upgrade": "招式伤害+3。",
+      "insight": 1
+    },
+    {
+      "id": "demo-feint",
+      "kind": "move",
+      "name": "拨叶",
+      "grade": "人级",
+      "sect": "雨亭社",
+      "text": "拨叶\n类型：虚招\n距离：1\n消耗：1\n主要动作，命中后进行虚招与看破对抗；胜出时破除目标架招。此示例不造成直接伤害。",
+      "source": {
+        "book": "core",
+        "version": "demo-1",
+        "page": 1,
+        "pdfPage": 1
+      },
+      "parentId": "demo-routine",
+      "routine": "雨亭短棍",
+      "affinity": "阴",
+      "requirement": "棍",
+      "weapon": "棍",
+      "moveType": "虚招",
+      "costText": "1",
+      "distance": "1",
+      "formula": {
+        "terms": [],
+        "fixed": null,
+        "damageType": "none",
+        "damageUpgrade": 0,
+        "mp": 1,
+        "mpUpgrade": 0,
+        "rage": 0,
+        "rageUpgrade": 0,
+        "block": 0,
+        "blockUpgrade": 0,
+        "distance": 1,
+        "distanceUpgrade": 0,
+        "action": "main"
+      },
+      "insight": 1
+    },
+    {
+      "id": "demo-stance",
+      "kind": "move",
+      "name": "横枝",
+      "grade": "人级",
+      "sect": "雨亭社",
+      "text": "横枝\n类型：架招\n距离：0\n消耗：1\n次要动作，横棍护身，格挡值+4。由玩家手动记录开启或结束。\n升级：格挡值+2。",
+      "source": {
+        "book": "core",
+        "version": "demo-1",
+        "page": 1,
+        "pdfPage": 1
+      },
+      "parentId": "demo-routine",
+      "routine": "雨亭短棍",
+      "affinity": "阴",
+      "requirement": "棍",
+      "weapon": "棍",
+      "moveType": "架招",
+      "costText": "1",
+      "distance": "0",
+      "formula": {
+        "terms": [],
+        "fixed": null,
+        "damageType": "none",
+        "damageUpgrade": 0,
+        "mp": 1,
+        "mpUpgrade": 0,
+        "rage": 0,
+        "rageUpgrade": 0,
+        "block": 4,
+        "blockUpgrade": 2,
+        "distance": 0,
+        "distanceUpgrade": 0,
+        "action": "minor"
+      },
+      "upgrade": "格挡值+2。",
+      "insight": 1
+    },
+    {
+      "id": "demo-staff",
+      "kind": "equipment",
+      "name": "练习短棍",
+      "grade": "人级",
+      "sect": "雨亭社",
+      "text": "练习短棍\n原创演示武器。伤害 +2，格挡 +1。",
+      "source": {
+        "book": "core",
+        "version": "demo-1",
+        "page": 1,
+        "pdfPage": 1
+      },
+      "slot": "武器",
+      "weapon": "棍",
+      "subtype": "短棍",
+      "weaponDamage": 2,
+      "weaponBlock": 1
+    },
+    {
+      "id": "demo-flask",
+      "kind": "equipment",
+      "name": "旅人水囊",
+      "grade": "道具",
+      "sect": "雨亭社",
+      "text": "旅人水囊\n原创演示道具。饮用后由桌上决定效果，网页只记录数量。",
+      "source": {
+        "book": "core",
+        "version": "demo-1",
+        "page": 1,
+        "pdfPage": 1
+      },
+      "slot": "行囊"
+    },
+    {
+      "id": "demo-status",
+      "kind": "status",
+      "name": "练习标记",
+      "grade": "状态",
+      "sect": "雨亭社",
+      "text": "练习标记\n记录一次练习约定，由玩家手动移除；不自动改变属性或伤害。",
+      "source": {
+        "book": "core",
+        "version": "demo-1",
+        "page": 1,
+        "pdfPage": 1
+      }
+    },
+    {
+      "id": "skill-洞察",
+      "kind": "skill",
+      "name": "洞察",
+      "grade": "属性技能",
+      "sect": "雨亭社",
+      "text": "洞察\n用于演示技能检定显示，具体场景由主持人裁定。",
+      "source": {
+        "book": "core",
+        "version": "demo-1",
+        "page": 1,
+        "pdfPage": 1
+      }
+    },
+    {
+      "id": "skill-疗伤",
+      "kind": "skill",
+      "name": "疗伤",
+      "grade": "属性技能",
+      "sect": "雨亭社",
+      "text": "疗伤\n用于演示技能检定显示，具体场景由主持人裁定。",
+      "source": {
+        "book": "core",
+        "version": "demo-1",
+        "page": 1,
+        "pdfPage": 1
+      }
+    },
+    {
+      "id": "skill-追踪",
+      "kind": "skill",
+      "name": "追踪",
+      "grade": "属性技能",
+      "sect": "雨亭社",
+      "text": "追踪\n用于演示技能检定显示，具体场景由主持人裁定。",
+      "source": {
+        "book": "core",
+        "version": "demo-1",
+        "page": 1,
+        "pdfPage": 1
+      }
+    },
+    {
+      "id": "skill-说服",
+      "kind": "skill",
+      "name": "说服",
+      "grade": "属性技能",
+      "sect": "雨亭社",
+      "text": "说服\n用于演示技能检定显示，具体场景由主持人裁定。",
+      "source": {
+        "book": "core",
+        "version": "demo-1",
+        "page": 1,
+        "pdfPage": 1
+      }
+    }
+  ],
+  "modules": [
+    {
+      "id": "demo-rain-pavilion",
+      "title": "雨亭试手",
+      "edition": "原创演示",
+      "difficulty": "演示",
+      "players": "1–6 人",
+      "author": "项目贡献者",
+      "intro": "一场帮助熟悉角色卡、主持台和先攻的短练习。",
+      "note": "本内容为项目原创功能示例，不属于官方规则或正式模组。",
+      "version": "demo-1",
+      "pdf": "",
+      "cover": "",
+      "contentUrl": "/modules/demo-rain-pavilion/content.json",
+      "sections": [
+        {
+          "id": "arrival",
+          "title": "雨亭相逢",
+          "page": 1
+        },
+        {
+          "id": "practice",
+          "title": "点到为止",
+          "page": 2
+        }
+      ],
+      "npcPages": [
+        2
+      ],
+      "pageCount": 2,
+      "assetCount": 0,
+      "npcCount": 1,
+      "pages": [
+        {
+          "number": 1,
+          "printed": 1,
+          "title": "雨亭相逢",
+          "text": "雨亭相逢\n\n细雨落在空亭旁。看守阿桥摆好木凳，请旅人喝水，并邀请大家做一场点到为止的练习。\n\n主持提示：先介绍角色，再让玩家熟悉查看招式、记录资源与切换架招。无论练习输赢，阿桥都会送上路况消息。",
+          "image": ""
+        },
+        {
+          "number": 2,
+          "printed": 2,
+          "title": "点到为止",
+          "text": "点到为止\n\n阿桥邀请队伍中的一名或多名旅人参加短棍练习。其余人可旁观或给出建议。\n\n将演示遭遇载入先攻后，由网页掷骰并排序。主持人手动开始或切换整轮，玩家手动调整气血、内力和状态。\n\n练习随时可以停止。阿桥提醒大家前方木桥湿滑，然后请旅人继续上路。",
+          "image": ""
+        }
+      ],
+      "assets": [],
+      "npcs": [
+        {
+          "id": "demo-partner",
+          "name": "阿桥",
+          "group": "雨亭练习",
+          "kind": "npc",
+          "aliases": [],
+          "description": "邀请旅人练习短棍的雨亭看守。原创演示人物。",
+          "sourcePage": 2,
+          "inner": "息雨功",
+          "note": "练习只计得分，不致死；资源手动记录。",
+          "source": "原创演示 · 雨亭试手第 2 页",
+          "url": "",
+          "fields": [
+            {
+              "label": "气血",
+              "value": "60"
+            },
+            {
+              "label": "内力",
+              "value": "30"
+            },
+            {
+              "label": "先攻",
+              "value": "2"
+            },
+            {
+              "label": "外功防御",
+              "value": "3"
+            },
+            {
+              "label": "内功防御",
+              "value": "2"
+            },
+            {
+              "label": "闪避",
+              "value": "10"
+            }
+          ],
+          "moves": [
+            {
+              "name": "点石",
+              "type": "实招",
+              "distance": "1 米",
+              "cost": "内力 1",
+              "damage": "12",
+              "effect": "挥棍攻击单个目标，命中后造成 12 点外功伤害。此为演示 NPC 固定面板。",
+              "sourceCell": "原创示例"
+            }
+          ],
+          "rows": []
+        }
+      ]
+    }
+  ],
+  "encounters": [
+    {
+      "id": "demo-practice",
+      "moduleId": "demo-rain-pavilion",
+      "title": "雨亭 · 点到为止",
+      "kind": "练习",
+      "pages": [
+        2
+      ],
+      "trigger": "旅人接受阿桥的练习邀请。",
+      "cast": [
+        {
+          "id": "partner",
+          "npcId": "demo-partner",
+          "name": "阿桥",
+          "count": 1,
+          "role": "opening",
+          "side": "enemy",
+          "note": "原创演示对手",
+          "optional": false,
+          "maximum": 1,
+          "hp": 60,
+          "hpDelta": null,
+          "track": true
+        }
+      ],
+      "notes": [
+        "练习随时停止，由主持人裁定得分。"
+      ]
+    }
+  ],
+  "starter": {
+    "title": "雨亭旅人 · 原创演示",
+    "description": "配好息雨功、雨亭短棍及练习装备。数值仅供功能演示，可自由修改，不是官方预设人物。",
+    "background": "demo-background",
+    "build": {
+      "personality": "demo-personality",
+      "personalityChoices": [
+        "洞察",
+        "疗伤"
+      ],
+      "sect": "雨亭社",
+      "silver": 20
+    },
+    "learn": [
+      {
+        "id": "demo-inner",
+        "level": 2
+      },
+      {
+        "id": "demo-routine",
+        "level": 2
+      }
+    ],
+    "equipment": [
+      "demo-staff",
+      "demo-flask"
+    ],
+    "activeWeapon": "demo-staff",
+    "favorites": [
+      "demo-routine"
+    ]
+  }
+}
