@@ -186,7 +186,6 @@ export const hostOperationSchema = z.discriminatedUnion("kind", [
     kind: z.literal("tone"),
     value: z.enum(["宫", "商", "角", "徵", "羽", "清空", "撤销"]),
   }),
-  z.object({ kind: z.literal("recoverOrder"), id }),
   z.object({ kind: z.literal("session"), sessionId: id.optional(), value: sessionSchema }),
   z.object({ kind: z.literal("scene"), value: sceneSchema }),
   z.object({ kind: z.literal("activeScene"), id }),

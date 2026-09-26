@@ -425,7 +425,6 @@ export function InitiativeBoard() {
                         >
                           {u.out ? "恢复出场" : "退场"}
                         </button>
-                        {!roundMode && b.activeId && b.activeId!==u.id && <button className="text-button" title="脱离濒死后，先攻移至当前行动者之后；资源仍手动记录" disabled={disabled} onClick={()=>send({kind:"recoverOrder",id:u.id})}>获救 · 排到当前之后</button>}
                       </>
                     )}
                   </div>

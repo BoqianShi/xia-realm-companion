@@ -312,21 +312,6 @@ export function applyHost(
       }
       break;
     }
-    case "recoverOrder": {
-      requireHost(
-        b.activeId && b.activeId !== op.id,
-        "请选择当前行动者之外的获救角色",
-      );
-      const u = unit(op.id);
-      record("获救后调整先攻");
-      b.units = b.units.filter((x) => x.id !== u.id);
-      const at = b.units.findIndex((x) => x.id === b.activeId);
-      b.units.splice(at + 1, 0, u);
-      u.out = false;
-      u.reserve = false;
-      u.offstage = false;
-      break;
-    }
     case "scene": {
       const i = h.scenes.findIndex((s) => s.id === op.value.id);
       requireHost(
